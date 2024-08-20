@@ -1,0 +1,22 @@
+include *.txt
+include *.md
+include *.pkl
+include ./dog_vs_cat *
+
+include dog_vs_cat/trained_models/*.keras
+include dog_vs_cat/VERSION
+include dog_vs_cat/config.yml
+
+# Exclude specific dataset folders and files
+recursive-exclude dog_vs_cat/datasets/cats_and_dogs_filtered *
+exclude dog_vs_cat/datasets/cats_and_dogs.zip
+
+# Include requirements files
+include ./requirements/requirements.txt
+include ./requirements/test_requirements.txt
+
+# Exclude logs, cfg files, and Python cache files
+exclude *.log
+exclude *.cfg
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
