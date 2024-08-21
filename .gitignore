@@ -4,6 +4,7 @@ dog_vs_cat/datasets/cats_and_dogs_filtered/
 **/cats_and_dogs.zip
 build/
 dist/
-dog_vs_cat/code_file.py
-dog_vs_cat/output.txt
 dog_vs_cat.egg-info/
+*/code_file.py
+*/output.txt
+
