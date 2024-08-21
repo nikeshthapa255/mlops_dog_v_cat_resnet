@@ -23,27 +23,17 @@ def validate_image_input(img_path: str) -> Tuple[Optional[np.ndarray], Optional[
     except Exception as e:
         return None, str(e)
 
-def validate_dataframe_input(df: pd.DataFrame) -> Optional[str]:
-    """Validate if the DataFrame contains image data in the right shape."""
-    expected_shape_single = (150, 150, 3)
-    expected_shape_multiple = (-1, 150, 150, 3)  # -1 represents any number of images
-
-    if df.shape == expected_shape_single or len(df.shape) == 4 and df.shape[1:] == expected_shape_single:
-        return None  # No error, the shape is valid
-    else:
-        return f"Invalid DataFrame shape. Expected {expected_shape_single} for single image or {expected_shape_multiple} for multiple images, but got {df.shape}."
-
 
 # Updated validate_inputs function
-def validate_inputs(input_data: Union[pd.DataFrame, str]) -> Tuple[Union[pd.DataFrame, np.ndarray], Optional[str]]:
+def validate_inputs(input_data: Union[np.ndarray, str]) -> Tuple[Union[np.ndarray, np.ndarray], Optional[str]]:
     """Validate input data for either DataFrame or image path."""
     
-    # If input is a DataFrame
-    if isinstance(input_data, pd.DataFrame):
-        error = validate_dataframe_input(input_data)
-        if error:
-            return None, error
-        return input_data, None  # Return the DataFrame as is if it passes validation
+    # If input is a numpy array
+    if isinstance(input_data, np.ndarray):
+        if input_data.shape == (1, 150, 150, 3):
+            return input_data, None  # The shape is valid
+        else:
+            return None, f"Invalid input array shape. Expected (1, 150, 150, 3), but got {input_data.shape}"
     
     
     # If input is a string, assume it's an image path
@@ -54,6 +44,5 @@ def validate_inputs(input_data: Union[pd.DataFrame, str]) -> Tuple[Union[pd.Data
         return img, None
     
     # If input is neither, return an error
-    else:
-        return None, "Invalid input type. Expected a DataFrame or image path string."
+    return None, "Invalid input type. Expected a numpy array or image path string."
 

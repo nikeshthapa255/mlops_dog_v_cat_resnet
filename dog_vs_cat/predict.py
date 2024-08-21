@@ -19,8 +19,8 @@ pipeline_file_name = f"{config.app_config.pipeline_save_file}{_version}.keras"
 loaded_model = load_pipeline(file_name=pipeline_file_name)
 
 
-def make_prediction(input_data: Union[pd.DataFrame, str]) -> dict:
-    """Make a prediction using a saved model with image or dataframe input."""
+def make_prediction(input_data: Union[np.ndarray, str]) -> dict:
+    """Make a prediction using a saved model with image or numpy array input."""
 
     validated_data, error = validate_inputs(input_data=input_data)
 

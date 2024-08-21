@@ -1,0 +1,11 @@
+uvicorn>=0.30.6
+fastapi>=0.112.1
+pydantic>=2.8.2
+requests>=2.32.3
+pydantic-settings>=2.4.0
+python-multipart>=0.0.9
+numpy==1.26.4
+pandas==2.1.4
+
+# If locally copyied whl file inside titanic_model-api then use given below
+dog_vs_cat-0.0.1-py3-none-any.whl
