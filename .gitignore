@@ -8,3 +8,5 @@ dog_vs_cat.egg-info/
 */code_file.py
 */output.txt
 
+**/*.keras
+**/*.whl
