@@ -23,7 +23,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: my-trained-pipeline
-        path: dog_vs_cat/trained_models/*.pkl
+        path: dog_vs_cat/trained_models/
         retention-days: 1
 
   test:
