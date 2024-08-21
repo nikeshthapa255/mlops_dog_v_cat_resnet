@@ -38,7 +38,8 @@ def run_training() -> None:
     # Train the model
     history = model.fit(train_generator,
                         validation_data=validation_generator,
-                        epochs=2)
+                        epochs=2,
+                        verbose=2)
 
     # Save the model
 
