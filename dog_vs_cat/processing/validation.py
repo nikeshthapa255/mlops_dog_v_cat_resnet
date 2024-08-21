@@ -2,6 +2,7 @@ from typing import Union, Tuple, Optional
 import pandas as pd
 import numpy as np
 from tensorflow.keras.preprocessing import image
+from pathlib import Path
 from pydantic import ValidationError
 
 from dog_vs_cat.config.core import config
@@ -27,7 +28,7 @@ def validate_image_input(img_path: str) -> Tuple[Optional[np.ndarray], Optional[
 # Updated validate_inputs function
 def validate_inputs(input_data: Union[np.ndarray, str]) -> Tuple[Union[np.ndarray, np.ndarray], Optional[str]]:
     """Validate input data for either DataFrame or image path."""
-    
+
     # If input is a numpy array
     if isinstance(input_data, np.ndarray):
         if input_data.shape == (1, 150, 150, 3):
@@ -37,7 +38,7 @@ def validate_inputs(input_data: Union[np.ndarray, str]) -> Tuple[Union[np.ndarra
     
     
     # If input is a string, assume it's an image path
-    elif isinstance(input_data, str):
+    elif isinstance(input_data, (str, Path)):
         img, error = validate_image_input(input_data)
         if error:
             return None, error
