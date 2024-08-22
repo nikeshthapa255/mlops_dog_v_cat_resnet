@@ -3,7 +3,6 @@ from PIL import Image
 import numpy as np
 import json
 
-from tensorflow.keras.preprocessing import image
 from dog_vs_cat import __version__ as model_version
 from dog_vs_cat.predict import make_prediction
 from app import __version__, schemas

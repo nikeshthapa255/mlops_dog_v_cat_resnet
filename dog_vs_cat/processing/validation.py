@@ -1,19 +1,23 @@
 from typing import Union, Tuple, Optional
 import pandas as pd
 import numpy as np
-from tensorflow.keras.preprocessing import image
 from pathlib import Path
+from PIL import Image
 from pydantic import ValidationError
 
 from dog_vs_cat.config.core import config
 
+
+
+
 # Function to load and preprocess image
 def load_and_preprocess_image(img_path):
-    img = image.load_img(img_path, target_size=(150, 150))
-    img_array = image.img_to_array(img)
+    img = Image.open(img_path).resize((150, 150))
+    img_array = np.array(img) / 255.0
     img_array = np.expand_dims(img_array, axis=0)
-    img_array /= 255.0
     return img_array
+
+
 
 # Function to validate image input
 def validate_image_input(img_path: str) -> Tuple[Optional[np.ndarray], Optional[str]]:

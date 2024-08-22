@@ -14,15 +14,9 @@ DATASET_PATH: https://storage.googleapis.com/mledu-datasets/cats_and_dogs_filter
 
 SELECTED_MODEL: MobileNetV2 # TODO use this config
 
-features:
-  - image
-
-unused_fields:
-  - None
-
 # Model parameters
 test_size: 0.20
 random_state: 42
-epochs: 10
+epochs: 2
 batch_size: 20
 learning_rate: 0.0001

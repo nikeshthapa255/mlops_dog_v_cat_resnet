@@ -21,11 +21,6 @@ def run_training() -> None:
 
     # read training data
     train_generator, validation_generator = load_dataset()
-    
-    for x, y in train_generator:
-        print(x.shape)
-        print(y.shape)
-        break
 
     # load model
     model = ClassificationModel(input_shape=(150, 150, 3), num_classes=2)
@@ -38,7 +33,7 @@ def run_training() -> None:
     # Train the model
     history = model.fit(train_generator,
                         validation_data=validation_generator,
-                        epochs=2,
+                        epochs=config.base_config.epochs,
                         verbose=2)
 
     # Save the model

@@ -1,5 +1,7 @@
 import sys
 from pathlib import Path
+
+from fastapi import UploadFile
 file = Path(__file__).resolve()
 parent, root = file.parent, file.parents[1]
 sys.path.append(str(root))

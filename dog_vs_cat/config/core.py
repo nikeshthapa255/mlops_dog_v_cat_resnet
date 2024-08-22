@@ -40,8 +40,6 @@ class ModelConfig(BaseModel):
     training and feature engineering.
     """
     target: str
-    features: List[str]
-    unused_fields: List[str]
     test_size: float
     random_state: int
     epochs: int
