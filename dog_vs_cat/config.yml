@@ -17,6 +17,6 @@ SELECTED_MODEL: MobileNetV2 # TODO use this config
 # Model parameters
 test_size: 0.20
 random_state: 42
-epochs: 2
+epochs: 10
 batch_size: 20
 learning_rate: 0.0001
