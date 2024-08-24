@@ -6,11 +6,8 @@ sys.path.append(str(root))
 
 import pandas as pd
 import tensorflow as tf
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-
 from dog_vs_cat.config.core import config
-from dog_vs_cat.processing.data_manager import load_dataset, save_pipeline
+from dog_vs_cat.processing import load_dataset, save_pipeline
 from dog_vs_cat.model import ClassificationModel
 
 def run_training() -> None:
