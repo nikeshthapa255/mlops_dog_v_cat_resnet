@@ -11,7 +11,7 @@ from tensorflow.keras.preprocessing import image
 
 from dog_vs_cat import __version__ as _version
 from dog_vs_cat.config.core import config
-from dog_vs_cat.processing.data_manager import load_pipeline
+from dog_vs_cat.processing import load_pipeline
 from dog_vs_cat.processing.validation import validate_inputs
 
 
